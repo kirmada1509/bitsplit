@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "906455593615",
+    "project_id": "bitsplit-24245",
+    "storage_bucket": "bitsplit-24245.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906455593615:android:6d746f0862e8ef950776fa",
+        "android_client_info": {
+          "package_name": "com.example.bitsplit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX_ALQyllHSFNXDRBKi9xQTxd8jEgcx0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

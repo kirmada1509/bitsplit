@@ -1,5 +1,4 @@
 import 'package:bitsplit/features/auth/data/models/user_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AuthRemoteDataSource {
@@ -29,13 +28,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     final result = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
 
-    User user = await _firebaseAuth.currentUser!;
+    User user = _firebaseAuth.currentUser!;
     await user.updateDisplayName(name);
-
-    final db = FirebaseFirestore.instance;
-    db.collection("users").add({"user_name": name, "uid": user.uid}).then(
-        (DocumentReference doc) =>
-            print('DocumentSnapshot added with ID: ${doc.id}'));
     return UserModel.fromFireBaseUser(result.user!);
   }
 

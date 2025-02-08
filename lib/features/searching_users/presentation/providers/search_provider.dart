@@ -1,5 +1,4 @@
 import 'package:bitsplit/features/searching_users/data/data_sources/remote_data_source.dart';
-import 'package:bitsplit/features/searching_users/data/models/item_model.dart';
 import 'package:bitsplit/features/searching_users/data/repositories/search_repo_impl.dart';
 import 'package:bitsplit/features/searching_users/domain/entities/item_entity.dart';
 import 'package:bitsplit/features/searching_users/domain/use_cases/search_use_case.dart';
@@ -19,7 +18,6 @@ final searchUseCaseProvider = Provider((ref) {
 
 final itemsProvider =
     FutureProvider.family<List<ItemEntity>?, String>((ref, String query) async {
-  print("searching for $query");
   return ref.read(searchUseCaseProvider).call(query);
 });
 

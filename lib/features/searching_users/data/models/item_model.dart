@@ -2,32 +2,19 @@ import 'package:bitsplit/features/searching_users/domain/entities/item_entity.da
 
 class ItemModel extends ItemEntity {
   ItemModel({
-    required List<String> tags,
-    required OwnerModel owner,
-    required bool isAnswered,
-    required int viewCount,
-    required int answerCount,
-    required int score,
-    required int lastActivityDate,
-    required int creationDate,
-    required int questionId,
-    required String contentLicense,
-    required String link,
-    required String title,
-  }) : super(
-          tags: tags,
-          owner: owner,
-          isAnswered: isAnswered,
-          viewCount: viewCount,
-          answerCount: answerCount,
-          score: score,
-          lastActivityDate: lastActivityDate,
-          creationDate: creationDate,
-          questionId: questionId,
-          contentLicense: contentLicense,
-          link: link,
-          title: title,
-        );
+    required super.tags,
+    required OwnerModel super.owner,
+    required super.isAnswered,
+    required super.viewCount,
+    required super.answerCount,
+    required super.score,
+    required super.lastActivityDate,
+    required super.creationDate,
+    required super.questionId,
+    required super.contentLicense,
+    required super.link,
+    required super.title,
+  });
 
   factory ItemModel.fromJson(Map<String, dynamic> json) {
     return ItemModel(
@@ -66,22 +53,14 @@ class ItemModel extends ItemEntity {
 
 class OwnerModel extends OwnerEntity {
   OwnerModel({
-    required int accountId,
-    required int reputation,
-    required int userId,
-    required String userType,
-    required String profileImage,
-    required String displayName,
-    required String link,
-  }) : super(
-          accountId: accountId,
-          reputation: reputation,
-          userId: userId,
-          userType: userType,
-          profileImage: profileImage,
-          displayName: displayName,
-          link: link,
-        );
+    required super.accountId,
+    required super.reputation,
+    required super.userId,
+    required super.userType,
+    required super.profileImage,
+    required super.displayName,
+    required super.link,
+  });
 
   factory OwnerModel.fromJson(Map<String, dynamic> json) {
     return OwnerModel(

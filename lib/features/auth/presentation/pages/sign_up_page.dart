@@ -4,7 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class SignUpPage extends ConsumerStatefulWidget {
+  const SignUpPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _SignUpPageState createState() => _SignUpPageState();
 }
 
@@ -21,7 +24,6 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Welcome ${user.name}!")));
       context.goNamed('home-page');
-      ;
     } else {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Login failed")));

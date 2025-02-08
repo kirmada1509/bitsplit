@@ -2,15 +2,13 @@ import 'package:bitsplit/features/searching_users/data/data_sources/remote_data_
 import 'package:bitsplit/features/searching_users/domain/entities/item_entity.dart';
 import 'package:bitsplit/features/searching_users/domain/repository/search_repo.dart';
 
-class SearchRepoImpl implements SearchRepo {
-
+class SearchRepoImpl implements SearchRepository {
   final RemoteDataSource remoteDataSource;
 
   SearchRepoImpl({required this.remoteDataSource});
 
   @override
   Future<List<ItemEntity>?> search(String query) {
-    // TODO: implement search
-    throw UnimplementedError();
+    return remoteDataSource.search(query);
   }
 }

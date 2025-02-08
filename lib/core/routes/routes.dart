@@ -10,7 +10,8 @@ final GoRouter router = GoRouter(
       path: '/',
       name: 'sign-in',
       builder: (BuildContext context, GoRouterState state) {
-        return SignInPage();
+        // return SignInPage();
+        return HomePage();
       },
     ),
     GoRoute(

@@ -2,6 +2,7 @@ import 'package:bitsplit/features/auth/data/data_sources/auth_remote_data_source
 import 'package:bitsplit/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:bitsplit/features/auth/domain/repository/auth_repository.dart';
 import 'package:bitsplit/features/auth/domain/use_cases/signIn_usecase.dart';
+import 'package:bitsplit/features/auth/domain/use_cases/signUp_usecase.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/entities/user_entity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -23,4 +24,8 @@ final userStreamProvider = StreamProvider<UserEntity?>((ref) {
 
 final signInProvider = Provider((ref) {
   return SignInUseCase(ref.read(authRepositoryProvider));
+});
+
+final signUpProvider = Provider((ref) {
+  return SignUpUseCase(ref.read(authRepositoryProvider));
 });

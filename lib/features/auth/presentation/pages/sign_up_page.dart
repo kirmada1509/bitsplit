@@ -3,19 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class SignInPage extends ConsumerStatefulWidget {
+class SignUpPage extends ConsumerStatefulWidget {
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends ConsumerState<SignInPage> {
+class _SignUpPageState extends ConsumerState<SignUpPage> {
+  final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   void signIn() async {
-    final signInUseCase = ref.read(signInProvider);
-    final user =
-        await signInUseCase(emailController.text, passwordController.text);
+    final signUpUseCase = ref.read(signUpProvider);
+    final user = await signUpUseCase(
+        nameController.text, emailController.text, passwordController.text);
     if (user != null) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Welcome ${user.name}!")));
@@ -34,14 +35,22 @@ class _SignInPageState extends ConsumerState<SignInPage> {
       body: Column(
         children: [
           TextField(
+              controller: nameController,
+              decoration: InputDecoration(labelText: "Name")),
+          TextField(
               controller: emailController,
               decoration: InputDecoration(labelText: "Email")),
           TextField(
               controller: passwordController,
               decoration: InputDecoration(labelText: "Password"),
               obscureText: true),
-          ElevatedButton(onPressed: signIn, child: Text("Sign In")),
-          TextButton(onPressed: () => context.goNamed("sign-up"), child: Text("Sign Up?")),
+          ElevatedButton(onPressed: signIn, child: Text("Sign Up")),
+          TextButton(
+            onPressed: () {
+              context.pop();
+            },
+            child: Text("Log In"),
+          )
         ],
       ),
     );
